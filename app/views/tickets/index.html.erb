@@ -1,4 +1,7 @@
-<h1>Listing Articles</h1>
+<h1>My Requests</h1>
+<div class="comment-form-actions">
+  <%= link_to "Export Closed Requests", closed_tickets_path, class: "button-large mark-as-solved", type: "button" if current_user.is_agent?%>
+</div>
 <% if @tickets.empty? %>
   <p>You do not have any tickets.</p>
 <% else %> 

@@ -1,0 +1,41 @@
+<header class="header">
+  <%= link_to "Customer Support", tickets_path, class: "nav-brand" %>
+
+  <nav class="user-nav">
+    <% if user_signed_in? %>
+      <% if !current_user.is_agent %>
+        <div class="user-nav__item">
+          <%= link_to 'Submit a request', new_ticket_path, :class => 'navbar-link' %>
+        </div>
+      <% end %>
+
+      <div class="user-nav__user">
+        <div class="user__profile dropdown-toggle"><%= current_user.name %></div>
+
+        <div id="user-dropdown" class="dropdown-menu dropdown-menu-caret" aria-expanded="false" role="menu">
+          <div role="menu" id="user-menu">
+            <%= link_to  "My activities", tickets_path, class: "my-activities", role: "menuitem" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', role: "menuitem" %>
+          </div>
+        </div>
+        
+      </div>
+    <% else %>
+      <div class="nav-item active">
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
+      </div>
+      <div class="nav-item active">
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+      </div>
+    <% end %>
+  </nav>
+</header>
+
+<nav class="my-activities-nav collapsible-nav">
+  <ul class="collapsible-nav-list container">
+    <li class="list__item active"><%= link_to  "Requests", tickets_path %></li>
+    <li class="list__item"><a href="#">Contributions</a></li>
+    <li class="list__item"><a href="#">Following</a></li>
+  </ul>
+</nav>

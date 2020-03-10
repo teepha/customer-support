@@ -15,3 +15,15 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 
+$(document).ready(() => {
+  // Dropdown menu
+  $(".dropdown-toggle").on("click", () => {
+    $("#user-dropdown").toggleClass("dropdown-menu-end");
+  });
+
+  // My Activities Nav
+  $(".list__item").click(() => {
+    $(".list__item").removeClass("active");
+    $(this).addClass("active");
+  });
+});

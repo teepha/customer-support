@@ -16,9 +16,9 @@ In order to install and run this project locally, you would need to have the fol
 
 Take the following steps to setup the application on your local machine:
 
-1. Run `git clone https://github.com/teepha/customer-support.git` to clone this repository
+- Run `git clone https://github.com/teepha/customer-support.git` to clone this repository
 
-2. Run `bundle install` to install all required gems
+- Run `bundle install` to install all required gems
 
 ### Configuring the database
 

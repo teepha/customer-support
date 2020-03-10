@@ -1,11 +1,16 @@
-<h1>My Requests</h1>
+<% if current_user.is_agent? || current_user.is_admin? %>
+  <h1>All Requests</h1>
+<% else %>
+  <h1>My Requests</h1>
+<% end %>
+
 <div class="comment-form-actions">
   <%= link_to "Export Closed Requests", closed_tickets_path, class: "button-large mark-as-solved", type: "button" if current_user.is_agent?%>
 </div>
 <% if @tickets.empty? %>
   <p>You do not have any tickets.</p>
 <% else %> 
-  <table>
+  <table class="ticket__listing">
     <tr>
       <th>Title</th>
       <th>Description</th>
@@ -16,7 +21,7 @@
     
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= link_to  ticket.title, ticket_path(ticket) %></td>
+        <td class="ticket__details"><%= link_to  ticket.title, ticket_path(ticket) %></td>
         <td><%= ticket.description %></td>
         <td><%= ticket.status %></td>
         <td><%= time_ago_in_words(ticket.created_at) %> ago</td>

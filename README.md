@@ -4,7 +4,7 @@ Customer Support is an app that helps an organization to manage customer service
 
 ## Getting started
 
-## Instructions to install and configure prerequisites or dependencies
+## Installation
 
 In order to install and run this project locally, you would need to have the following installed on you local machine.
 
@@ -20,7 +20,9 @@ Take the following steps to setup the application on your local machine:
 
 2. Run `bundle install` to install all required gems
 
-3. Run `cp config/application.yml.sample config/application.yml` to create the `application.yml` file.
+### Configuring the database
+
+- Run `cp config/application.yml.sample config/application.yml` to create the `application.yml` file.
 
 _Note_ Update the mysql username and password if you have one
 
@@ -28,8 +30,6 @@ _Note_ Update the mysql username and password if you have one
 MYSQL_USER: "your-mysql-username"
 MYSQL_PASSWORD: "your-mysql-password"
 ```
-
-### Configuring the database
 
 - After creating your `config/application.yml`, you need to create these 2 databases `customer_support_development` and `customer_support_test`. To create them, run:
 

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     end
     resources :comments, except: [:edit, :update, :new]
   end
+  get "/closed_tickets" => "tickets#closed_tickets"
 end

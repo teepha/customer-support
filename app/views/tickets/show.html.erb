@@ -1,0 +1,92 @@
+<div class="request-breadcrumbs">
+  <ol class="breadcrumbs">
+    <li title="home">
+      <%= link_to  "Home", root_path %>
+    </li>
+    <li title="activities">
+      <%= link_to  "My activities", tickets_path %>
+    </li>
+  </ol>
+</div>
+
+<h2 class="request-title"><%= @ticket.title %></h2>
+
+<div class="request-container">
+  <section class="request-main">
+    <ul class="request-comment-list">
+      <li id="request_<%= @ticket.id %>" class="ticket">
+        <div class="ticket-wrapper">
+          <div class="ticket-info">
+            <div class="ticket-author">
+              <div class="avatar ticket-avatar">
+                <i class="fas fa-user user-avatar"></i>
+              </div>
+              <div class="ticket-meta">
+                <span title="<%= @ticket.user.name %>">
+                  <%= @ticket.user.name %>
+                </span>
+                <ul class="meta-group">
+                  <li class="meta-data">
+                    <time datetime="<%= @ticket.created_at %>" title="<%= @ticket.created_at %>" data-datetime="relative">
+                      <%= time_ago_in_words(@ticket.created_at) %> ago
+                    </time>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <section class="ticket-body">
+              <div class="zd-ticket" dir="auto">
+                <p><%= @ticket.description %></p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </li>
+
+      <% @comments.each do |comment| %>
+        <li id="request_comment_<%= comment.id %>" class="comment">
+          <div class="comment-wrapper">
+            <div class="comment-info">
+              <div class="comment-author">
+                <div class="avatar comment-avatar">
+                  <% if comment.user.is_agent? %>
+                    <i class="fas fa-user-tie agent-avatar"></i>
+                  <% elsif comment.user.is_admin? %>
+                    <i class="fas fa-user-shield admin-avatar"></i>
+                  <% else %>
+                    <i class="fas fa-user user-avatar"></i>
+                  <% end %>
+                </div>
+                <div class="comment-meta">
+                  <span title="<%= comment.user.name %>">
+                    <%= comment.user.name %>
+                  </span>
+                  <ul class="meta-group">
+                    <li class="meta-data">
+                      <time datetime="<%= comment.created_at %>" title="<%= comment.created_at %>" data-datetime="relative">
+                        <%= time_ago_in_words(comment.created_at) %> ago
+                      </time>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <section class="comment-body">
+                <div class="zd-comment" dir="auto">
+                  <p><%= comment.body %></p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <% if @ticket.open? %>
+      <%= render partial: 'comments/form', locals: { comment: @comment } %>
+    <% else %>
+      <div class="request-follow-up">
+        This request is closed for comments. You can <%= link_to "create a follow-up", new_ticket_path %>
+      </div>
+    <% end %>
+  </section>
+</div>

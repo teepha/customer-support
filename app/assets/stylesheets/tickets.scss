@@ -1,0 +1,234 @@
+// Place all the styles related to the tickets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Single Ticket page
+.request-breadcrumbs {
+  margin-bottom: 40px;
+
+  .breadcrumbs {
+    margin: 0 0 15px 0;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      margin: 0;
+    }
+
+    li {
+      color: #666;
+      display: inline;
+      font-weight: 300;
+      font-size: 14px;
+      max-width: 450px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      a {
+        text-decoration: none;
+      }
+
+      a,
+      a:visited {
+        color: #0072ef;
+      }
+    }
+
+    li + li::before {
+      content: ">";
+      margin: 0 4px;
+    }
+  }
+}
+
+.request-title {
+  width: 100%;
+  font-size: 22px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+  }
+}
+
+.request-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .request-main {
+    flex: 1 0 auto;
+    order: 1;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ticket,
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+
+  .ticket-wrapper,
+  .comment-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+}
+
+.ticket-info,
+.comment-info {
+  min-width: 0;
+  padding-right: 20px;
+  width: 100%;
+}
+
+.ticket-author,
+.comment-author {
+  align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  display: inline-block;
+  position: relative;
+}
+
+.ticket-avatar,
+.comment-avatar {
+  margin-right: 10px;
+}
+
+.user-avatar {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.avatar .fas {
+  font-size: 40px;
+}
+
+.ticket-meta,
+.comment-meta {
+  flex: 1 0 auto;
+
+  span {
+    font-size: 15px;
+  }
+}
+
+.meta-group {
+  display: block;
+
+  .meta-data {
+    color: #666;
+    font-size: 12px;
+  }
+}
+
+.ticket-body,
+.comment-body {
+  word-break: break-word;
+  line-height: 1.6;
+
+  p {
+    font-size: 15px;
+  }
+}
+
+.request-follow-up {
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+.comment-form {
+  display: flex;
+  padding-top: 30px;
+  word-wrap: break-word;
+
+  .comment-avatar {
+    margin-right: 1.2rem;
+  }
+}
+
+.comment-container {
+  width: 100%;
+}
+
+.request-main {
+  .comment-show-container {
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    padding: 8px 15px;
+    width: 100%;
+  }
+
+  .comment-show-container-content {
+    align-self: center;
+    color: #666;
+    margin-left: 10px;
+    border: none;
+    width: 100%;
+    font-size: 15px;
+    height: 28px;
+    outline: none;
+  }
+
+  .comment-fields,
+  .request-submit-comment {
+    display: none;
+  }
+}
+
+.comment-form-actions {
+  display: block;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.button-large {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 2.72;
+  min-width: 190px;
+  padding: 0.1rem 2rem;
+  width: auto;
+  color: #007bff;
+  border: 1px solid #ddd;
+  background-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #0072ef;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+  }
+}
+
+input[type="submit"]:disabled {
+  background: #dddddd;
+  color: #333333;
+}
+
+.mark-as-solved {
+  text-decoration: none;
+}

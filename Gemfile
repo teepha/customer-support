@@ -24,6 +24,8 @@ gem 'devise'
 # Use bootstrap for styling
 gem 'bootstrap'
 gem 'jquery-rails'
+# Generating zip files
+gem 'rubyzip'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
